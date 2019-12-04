@@ -5,10 +5,10 @@ import jQuery from 'jquery';
 
 import './custom.css';
 
-import './template/stisla-master/node_modules/jqvmap/dist/jqvmap.min.css';
-import './template/stisla-master/node_modules/summernote/dist/summernote-bs4.css';
-import './template/stisla-master/node_modules/owl.carousel/dist/assets/owl.carousel.min.css';
-import './template/stisla-master/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css';
+import './template/stisla-master/assets/custom/jqvmap/dist/jqvmap.min.css';
+import './template/stisla-master/assets/custom/summernote/dist/summernote-bs4.css';
+import './template/stisla-master/assets/custom/owl.carousel/dist/assets/owl.carousel.min.css';
+import './template/stisla-master/assets/custom/owl.carousel/dist/assets/owl.theme.default.min.css';
 
 import './template/stisla-master/assets/css/style.css';
 import './template/stisla-master/assets/css/components.css';
@@ -23,11 +23,11 @@ class Dashboard extends Component {
         this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js');
         // this.loadScript('./template/stisla-master/assets/js/stisla.js');
 
-        this.loadScript('./template/stisla-master/node_modules/jquery-sparkline/jquery.sparkline.min.js');
-        this.loadScript('./template/stisla-master/node_modules/chart.js/dist/Chart.min.js');
-        this.loadScript('./template/stisla-master/node_modules/owl.carousel/dist/owl.carousel.min.js');
-        this.loadScript('./template/stisla-master/node_modules/summernote/dist/summernote-bs4.js');
-        this.loadScript('./template/stisla-master/node_modules/chocolat/dist/js/jquery.chocolat.min.js');
+        this.loadScript('./template/stisla-master/assets/custom/jquery-sparkline/jquery.sparkline.min.js');
+        this.loadScript('./template/stisla-master/assets/custom/chart.js/dist/Chart.min.js');
+        this.loadScript('./template/stisla-master/assets/custom/owl.carousel/dist/owl.carousel.min.js');
+        this.loadScript('./template/stisla-master/assets/custom/summernote/dist/summernote-bs4.js');
+        this.loadScript('./template/stisla-master/assets/custom/chocolat/dist/js/jquery.chocolat.min.js');
 
         this.loadScript('./template/stisla-master/assets/js/scripts.js');
         this.loadScript('./template/stisla-master/assets/js/custom.js');
@@ -730,21 +730,21 @@ class Dashboard extends Component {
                                                     <div className="text-title mb-2">July</div>
                                                     <ul className="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                                         <li className="media">
-                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/node_modules/flag-icon-css/flags/4x3/id.svg")} alt="image" width="40" />
+                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/assets/custom/flag-icon-css/flags/4x3/id.svg")} alt="image" width="40" />
                                                             <div className="media-body ml-3">
                                                                 <div className="media-title">Indonesia</div>
                                                                 <div className="text-small text-muted">3,282 <i className="fas fa-caret-down text-danger"></i></div>
                                                             </div>
                                                         </li>
                                                         <li className="media">
-                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/node_modules/flag-icon-css/flags/4x3/my.svg")} alt="image" width="40" />
+                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/assets/custom/flag-icon-css/flags/4x3/my.svg")} alt="image" width="40" />
                                                             <div className="media-body ml-3">
                                                                 <div className="media-title">Malaysia</div>
                                                                 <div className="text-small text-muted">2,976 <i className="fas fa-caret-down text-danger"></i></div>
                                                             </div>
                                                         </li>
                                                         <li className="media">
-                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/node_modules/flag-icon-css/flags/4x3/us.svg")} alt="image" width="40" />
+                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/assets/custom/flag-icon-css/flags/4x3/us.svg")} alt="image" width="40" />
                                                             <div className="media-body ml-3">
                                                                 <div className="media-title">United States</div>
                                                                 <div className="text-small text-muted">1,576 <i className="fas fa-caret-up text-success"></i></div>
@@ -756,21 +756,21 @@ class Dashboard extends Component {
                                                     <div className="text-title mb-2">August</div>
                                                     <ul className="list-unstyled list-unstyled-border list-unstyled-noborder mb-0">
                                                         <li className="media">
-                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/node_modules/flag-icon-css/flags/4x3/id.svg")} alt="image" width="40" />
+                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/assets/custom/flag-icon-css/flags/4x3/id.svg")} alt="image" width="40" />
                                                             <div className="media-body ml-3">
                                                                 <div className="media-title">Indonesia</div>
                                                                 <div className="text-small text-muted">3,486 <i className="fas fa-caret-up text-success"></i></div>
                                                             </div>
                                                         </li>
                                                         <li className="media">
-                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/node_modules/flag-icon-css/flags/4x3/ps.svg")} alt="image" width="40" />
+                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/assets/custom/flag-icon-css/flags/4x3/ps.svg")} alt="image" width="40" />
                                                             <div className="media-body ml-3">
                                                                 <div className="media-title">Palestine</div>
                                                                 <div className="text-small text-muted">3,182 <i className="fas fa-caret-up text-success"></i></div>
                                                             </div>
                                                         </li>
                                                         <li className="media">
-                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/node_modules/flag-icon-css/flags/4x3/de.svg")} alt="image" width="40" />
+                                                            <img className="img-fluid mt-1 img-shadow" src={require("./template/stisla-master/assets/custom/flag-icon-css/flags/4x3/de.svg")} alt="image" width="40" />
                                                             <div className="media-body ml-3">
                                                                 <div className="media-title">Germany</div>
                                                                 <div className="text-small text-muted">2,317 <i className="fas fa-caret-down text-danger"></i></div>

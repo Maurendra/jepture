@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import './custom_login.css';
 
-import './template/stisla-master/node_modules/bootstrap-social/bootstrap-social.css';
+import './template/stisla-master/assets/custom/bootstrap-social/bootstrap-social.css';
 
 import './template/stisla-master/assets/css/style.css';
 import './template/stisla-master/assets/css/components.css';
