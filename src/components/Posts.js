@@ -140,7 +140,10 @@ class Login extends Component {
         let bulan = date.getMonth();
         let tahun = date.getFullYear();
         let tanggalHarini = tanggal + "-" + arrbulan[bulan] + "-" + tahun;
-        let id = this.state.postData[this.state.length-1].id + 1;
+        let id = 1;
+        if (this.state.length !== 0) {
+            id = this.state.postData[this.state.length-1].id + 1;   
+        }
         // let formData = new FormData();
         // // formData.append('id', 5);
         // // formData.append('title', event.target.titleAdd.value);
