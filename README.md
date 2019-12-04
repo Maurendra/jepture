@@ -10,6 +10,7 @@ Download kedua file, jepture dan json-server
 - Setelah selesai install dependencies jepture dengan masuk ke folder utama(jepture-master)
 - Jalankan command npm install
 - Jalankan json server dengan masuk ke folder json-server
+- Jalankan command npm install -g json-server
 - Jalankan command json-server db.json
 - Jalankan aplikasi jepture dengan masuk ke folder jepture
 - Jalankan command yarn start
