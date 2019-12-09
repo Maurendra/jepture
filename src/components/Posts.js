@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
 
 import './custom_login.css';
 
@@ -51,35 +52,22 @@ class Login extends Component {
 
     load = async () => {
         let url = "http://localhost:3000/posts/";
+        let data = require('./db.json');
 
-        await fetch(url, {
-            method: 'GET',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then((response) => response.json())
-            .then(data => {
-                this.setState({ postData: data, length: data.length });
-                console.log(data);
-            }).catch(error => {
-                console.log('Post Error: ' + JSON.stringify(error));
-            });
+        this.setState({ postData: data, length: data.length });
+        console.log('Test ' + this.state.postData);
     };
 
     async delete(id) {
-        if (window.confirm('Are you sure')) {
-            await fetch('http://localhost:3000/posts/' + id, {
-                method: 'DELETE',
-                header: {
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json'
-                }
-            });
-            window.location.reload();
-        }
+        let data = this.state.postData;
+        let i = 0;
+        data.forEach(element => {
+            if (element.id === id) {
+                data.splice(i,1);
+            }
+            i++;
+        });
+        // window.location.reload();
     }
 
     update(id, title, author, body, slug, category, created_at) {
@@ -102,23 +90,21 @@ class Login extends Component {
         let bulan = date.getMonth();
         let tahun = date.getFullYear();
         let tanggalHarini = tanggal + "-" + arrbulan[bulan] + "-" + tahun;
-        let id = this.state.postData[this.state.length-1].id + 1;
-        // let formData = new FormData();
-        // // formData.append('id', 5);
-        // // formData.append('title', event.target.titleAdd.value);
-        // // formData.append('author', event.target.authorAdd.value);
-        // // formData.append('body', event.target.bodyAdd.value);
-        // // formData.append('slug', event.target.slugAdd.value);
-        // // formData.append('category_name', event.target.categoryAdd.value);
-        // // formData.append('created_at', tanggalHarini);
-        // // formData.append('updated_at', '');
-        await fetch('http://localhost:3000/posts/' + this.state.idUpdate, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
+
+        let status = false;
+        let data = this.state.postData;
+        let i = 0;
+        let iDelete = 0;
+        data.forEach(element => {
+            if (element.id === this.state.idUpdate) {
+                status = true;
+                iDelete = i;
+            }
+            i++;
+        });
+
+        if (status) {
+            let post = {
                 id: this.state.idUpdate,
                 title: event.target.titleUpdate.value,
                 author: event.target.authorUpdate.value,
@@ -127,9 +113,21 @@ class Login extends Component {
                 category_name: event.target.categoryUpdate.value,
                 created_at: this.state.tanggalUpdate,
                 updated_at: tanggalHarini
+            }
+            data.splice(iDelete, 1);
+            data.push(post);
+            console.log('update' + data);
+            this.setState({
+                postData: data
             })
-        })
-        window.location.reload();
+            // window.history.back();
+            // $('#modal-update').toggle();
+            // window.location.reload();   
+        } else {
+            // $('#modal-update').hide();
+            console.log('error');
+            // window.location.reload();
+        }
     }
 
     async handleSubmit(event) {
@@ -144,22 +142,20 @@ class Login extends Component {
         if (this.state.length !== 0) {
             id = this.state.postData[this.state.length-1].id + 1;   
         }
-        // let formData = new FormData();
-        // // formData.append('id', 5);
-        // // formData.append('title', event.target.titleAdd.value);
-        // // formData.append('author', event.target.authorAdd.value);
-        // // formData.append('body', event.target.bodyAdd.value);
-        // // formData.append('slug', event.target.slugAdd.value);
-        // // formData.append('category_name', event.target.categoryAdd.value);
-        // // formData.append('created_at', tanggalHarini);
-        // // formData.append('updated_at', '');
-        await fetch('http://localhost:3000/posts/', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
+
+        let status = false;
+        let data = this.state.postData;
+        data.forEach(element => {
+            if (element.id === id) {
+                status = true;
+            }
+        });
+
+        if (status) {
+            console.log('error');
+            // window.location.reload();   
+        } else {
+            let post = {
                 id: id,
                 title: event.target.titleAdd.value,
                 author: event.target.authorAdd.value,
@@ -168,9 +164,20 @@ class Login extends Component {
                 category_name: event.target.categoryAdd.value,
                 created_at: tanggalHarini,
                 updated_at: ''
+            }
+            data.push(post);
+            console.log('insert' + data);
+            this.setState({
+                postData: data
             })
-        })
-        window.location.reload();
+            // var fs = require('fs');
+            // fs.writeFile("db.json", data, function(err) {
+            //     if (err) {
+            //         console.log("error" + err);
+            //     }
+            // });
+            // window.location.reload();
+        }
     }
 
     render() {
@@ -557,7 +564,7 @@ class Login extends Component {
                         </aside>
                     </div>
 
-                    <div className="main-content">
+                    <div className="main-content" style={{ paddingRight: 0, paddingTop: 20 }}>
                         <section className="section">
                             <div className="section-header">
                                 <h1>Posts</h1>

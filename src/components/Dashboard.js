@@ -16,23 +16,6 @@ import './template/stisla-master/assets/css/components.css';
 class Dashboard extends Component {
 
     async componentDidMount() {
-        this.loadScript('https://code.jquery.com/jquery-3.3.1.min.js');
-        this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js');
-        this.loadScript('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
-        this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js');
-        this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js');
-        // this.loadScript('./template/stisla-master/assets/js/stisla.js');
-
-        this.loadScript('./template/stisla-master/assets/custom/jquery-sparkline/jquery.sparkline.min.js');
-        this.loadScript('./template/stisla-master/assets/custom/chart.js/dist/Chart.min.js');
-        this.loadScript('./template/stisla-master/assets/custom/owl.carousel/dist/owl.carousel.min.js');
-        this.loadScript('./template/stisla-master/assets/custom/summernote/dist/summernote-bs4.js');
-        this.loadScript('./template/stisla-master/assets/custom/chocolat/dist/js/jquery.chocolat.min.js');
-
-        this.loadScript('./template/stisla-master/assets/js/scripts.js');
-        this.loadScript('./template/stisla-master/assets/js/custom.js');
-
-        this.loadScript('./template/stisla-master/assets/js/page/index.js');
     }
 
     loadScript = function (src) {
@@ -44,7 +27,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div id="app">
+            <div id="app" >
                 <div className="main-wrapper">
                     <div className="navbar-bg"></div>
                     <nav className="navbar navbar-expand-lg main-navbar">
@@ -425,7 +408,7 @@ class Dashboard extends Component {
                         </aside>
                     </div>
 
-                    <div className="main-content">
+                    <div className="main-content" style={{ paddingRight: 0, paddingTop: 20 }}>
                         <section className="section">
                             <div className="row">
                                 <div className="col-lg-4 col-md-4 col-sm-12">
